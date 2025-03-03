@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yes-btn {
+            background: #4caf50;
+            color: white;
+        }
+        #no-btn {
+            background: #f44336;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        #celebration, #birthday, #romantic {
+            margin-top: 20px;
+        }
+        .nicknames span {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background: #e91e63;
+            color: white;
+            border-radius: 5px;
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, -20px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(20px, 20px); }
+        }
+        .message {
+            font-style: italic;
+            margin: 20px 0;
+            color: #555;
+        }
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: #ff69b4;
+            border-radius: 50%;
+            animation: floatBalloon 10s infinite ease-in-out;
+        }
+        @keyframes floatBalloon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-100vh); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Balloons -->
+    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 8s;"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Starting Page -->
+        <div id="start">
+            <h1>Do you love me?</h1>
+            <div class="buttons">
+                <button id="yes-btn">Yes</button>
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+
+        <!-- Celebration Page -->
+        <div id="celebration" class="hidden">
+            <h2>Yay! I love you too! ❤️</h2>
+            <p class="message">You are my everything, my princess, my jaan, my darling, my sweetheart, my love, my baby, my kucchhuuu pucchuu, my bongi, my wifey. I am so lucky to have you in my life. Happy Birthday, my love!</p>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <!-- Birthday Page -->
+        <div id="birthday" class="hidden">
+            <h2>Happy Birthday, My Love! 🎉</h2>
+            <p class="message">On this special day, I want you to know how much you mean to me. You are my world, and I cherish every moment with you. Here's to many more birthdays together!</p>
+            <div class="nicknames">
+                <span>Princess</span>
+                <span>Jaan</span>
+                <span>Darling</span>
+                <span>Sweetheart</span>
+                <span>My Love</span>
+                <span>Ma Baby</span>
+                <span>Kucchhuuu Pucchuu</span>
+                <span>Bongi</span>
+                <span>Wifey</span>
+            </div>
+            <button id="next-btn-2">Next</button>
+        </div>
+
+        <!-- Romantic Page -->
+        <div id="romantic" class="hidden">
+            <h2>For My Love ❤️</h2>
+            <p class="message">Whenever you miss me, come here and read this. I may not be there physically, but my love for you will always be with you. You are my forever, and I will always be yours.</p>
+            <p class="message">No matter how far apart we are, my heart beats for you. You are my strength, my joy, and my everything. I love you more than words can express.</p>
+            <p class="message">Happy Birthday, my love. May this day be as special as you are to me. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        // No Button Logic
+        document.getElementById('no-btn').addEventListener('click', function() {
+            const messages = [
+                "Are you sure?",
+                "Think about it!",
+                "Really?",
+                "Don't break my heart!",
+                "Please reconsider!",
+                "I'll keep asking!",
+                "You know you love me!",
+                "Think again!",
+                "I won't give up!",
+                "Just say yes!",
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMessage);
+        });
+
+        // Yes Button Logic
+        document.getElementById('yes-btn').addEventListener('click', function() {
+            document.getElementById('start').classList.add('hidden');
+            document.getElementById('celebration').classList.remove('hidden');
+        });
+
+        // Next Button Logic (Celebration to Birthday)
+        document.getElementById('next-btn').addEventListener('click', function() {
+            document.getElementById('celebration').classList.add('hidden');
+            document.getElementById('birthday').classList.remove('hidden');
+        });
+
+        // Next Button Logic (Birthday to Romantic)
+        document.getElementById('next-btn-2').addEventListener('click', function() {
+            document.getElementById('birthday').classList.add('hidden');
+            document.getElementById('romantic').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
